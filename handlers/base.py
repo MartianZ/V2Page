@@ -1,6 +1,7 @@
 # -*- encoding: utf8 -*-
 # author: MartianZ <fzyadmin@gmail.com>
 
+import tornado
 from tornado.web import RequestHandler
 from tornado.options import options
 import codecs
@@ -18,6 +19,8 @@ class BaseHandler(RequestHandler):
 	def posts_dir(self):
 		return options.posts_dir
 
+	def get_current_user(self):
+		return self.get_secure_cookie("user")
 
 	def markdown_parser(self, file_path):
 		f = codecs.open(file_path, mode='r', encoding='utf8')

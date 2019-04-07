@@ -25,6 +25,9 @@ class Application(web.Application):
 
 			template_path=os.path.join(os.path.dirname(__file__), "template"),
 			static_path=os.path.join(os.path.dirname(__file__), "static"),
+			
+			login_url="/login",
+			cookie_secret="HWyxHPhiSm+iNOS1mfeBJLStEk+EXEIHlIYrI/z+icw=",
 
 			)
 		super(Application, self).__init__(handlers, **settings)
